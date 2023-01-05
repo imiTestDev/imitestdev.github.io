@@ -1,11 +1,11 @@
 export const FSM_BACKEND = {
 
-    STATES: [
+    "STATES": [
         {
-            parent: null,
-            id: -1,
-            next_id: -1,
-            check: function (input) {
+            "parent": null,
+            "id": -1,
+            "next_id": -1,
+            "check": function (input) {
                 if (0 <= input && input < 8) {
                     this.next_id = 1;
                 }
@@ -32,13 +32,13 @@ export const FSM_BACKEND = {
                 }
                 this.parent.switchState(this, this.transitions[this.next_id]);
             },
-            transitions: [0,1,0,0,0,1,1,1,0,0,1,1,1,1]
+            "transitions": [0,1,0,0,0,1,1,1,0,0,1,1,1,1]
         },
         {
-            parent: null,
-            id: -1,
-            next_id: -1,
-            check: function (input) {
+            "parent": null,
+            "id": -1,
+            "next_id": -1,
+            "check": function (input) {
                 if (0 <= input && input < 8) {
                     this.next_id = 0;
                 }
@@ -65,16 +65,16 @@ export const FSM_BACKEND = {
                 }
                 this.parent.switchState(this, this.transitions[this.next_id]);
             },
-            transitions: [0,0,0,0,1,1,1,0,1,0,1,0,1,1,1,1]
+            "transitions": [0,0,0,0,1,1,1,0,1,0,1,0,1,1,1,1]
         }
     ],
 
-    switchState(cur_state, state) {
+    "switchState" : function(cur_state, state) {
         Object.assign(cur_state, this.STATES[state]);
         console.log(cur_state.id);
     },
 
-    validate(data_object, start_id) {
+    "validate" : function(data_object, start_id) {
         console.log(data_object)
         const DATA_STATUS = {
             not_read: 0,
@@ -155,7 +155,7 @@ export const FSM_BACKEND = {
         return current_data_validity === DATA_STATUS.valid
     },
 
-    toNumber(val) { // return val;
+    "toNumber": function(val) { // return val;
         return val.charCodeAt(0)
     }
 
