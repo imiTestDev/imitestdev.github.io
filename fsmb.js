@@ -1,6 +1,4 @@
-export
-
-const FSM_BACKEND = {
+export const FSM_BACKEND = {
 
     STATES: [
         {
